@@ -1,0 +1,10 @@
+time_sentence:
+  second:       'second'
+  minute:       'minute'
+  hour:         'hour'
+  day:          'day'
+  week:         'week'
+  month:        'month'
+  year:         'year'
+  decade:       'decade'
+  millennium:   'millennium'

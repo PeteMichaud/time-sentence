@@ -1,0 +1,14 @@
+*.gem
+*.rvmrc
+.bundle
+Gemfile.lock
+pkg/*
+coverage.data
+coverage/*
+.yardoc
+tmp
+vendor/bundle
+*.swp
+*.swo
+*.DS_Store
+.idea/*
