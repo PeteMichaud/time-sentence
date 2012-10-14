@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = TimeSentence::VERSION
   s.authors     = ["Pete Michaud"]
   s.email       = ["me@petermichaud.com"]
-  s.homepage    = "http://github.com/PeteMichaud/time_sentence"
+  s.homepage    = "http://github.com/PeteMichaud/time-sentence"
   s.summary     = "Translates Seconds into Human Readable Sentences"
   s.description = "Translates Seconds into Human Readable Sentences"
   s.rubyforge_project = "time_sentence"
