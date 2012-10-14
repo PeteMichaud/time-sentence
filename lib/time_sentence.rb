@@ -1,4 +1,4 @@
 require 'time_sentence/version'
 
-require 'ext/time'
-require 'ext/numeric'
+require 'ext/ts_time'
+require 'ext/ts_numeric'
