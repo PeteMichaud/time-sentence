@@ -10,6 +10,7 @@ You can use the `time_sentence` method on any number or the Time.sentence class 
 ```ruby
     1.hour.time_sentence #=> "1 hour"
     168.hours.time_sentence #=> "1 week"
+    525600.minutes.time_sentence #=> "1 year, 1 month, 1 day"
     9999.seconds.time_sentence #=> "2 hours, 46 minutes, 39 seconds"
     123456876543.seconds.time_sentence #=> "4 millennia, 25 decades, 2 years"
 
