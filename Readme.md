@@ -5,47 +5,49 @@ into joy.
 
 ## Basic Usage
 
-You can use the `time_sentence` method on any number or the Time.sentence class method to get the same result
+You can use the `to_time_sentence` method on any number or the `Time.to_sentence` class method to get the same result
 
 ```ruby
-    1.hour.time_sentence #=> "1 hour"
-    168.hours.time_sentence #=> "1 week"
-    525600.minutes.time_sentence #=> "1 year, 1 month, 1 day"
-    9999.seconds.time_sentence #=> "2 hours, 46 minutes, 39 seconds"
-    123456876543.seconds.time_sentence #=> "4 millennia, 25 decades, 2 years"
+    1.hour.to_time_sentence #=> "1 hour"
+    168.hours.to_time_sentence #=> "1 week"
+    525600.minutes.to_time_sentence #=> "1 year, 1 month, 1 day"
+    9999.seconds.to_time_sentence #=> "2 hours, 46 minutes, 39 seconds"
+    123456876543.seconds.to_time_sentence #=> "4 millennia, 25 decades, 2 years"
 
-    Time.sentence(1.hour) #=> "1 hour"
-    Time.sentence(168.hours) #=> "1 week"
-    Time.sentence(9999.seconds) #=> "2 hours, 46 minutes, 39 seconds"
-    Time.sentence(123456876543.seconds) #=> "4 millennia, 25 decades, 2 years"
+    Time.to_sentence(1.hour) #=> "1 hour"
+    Time.to_sentence(168.hours) #=> "1 week"
+    Time.to_sentence(525600.minutes) #=> "1 year, 1 month, 1 day"
+    Time.to_sentence(9999.seconds) #=> "2 hours, 46 minutes, 39 seconds"
+    Time.to_sentence(123456876543.seconds) #=> "4 millennia, 25 decades, 2 years"
 ```
 
 ## Advanced Usage
 
 ### Specificity
 
-Time_Sentence assumes that you won't want more than 3 terms in your sentence, so it chooses the largest unit it can,
+`time_sentence` assumes that you won't want more than 3 terms in your sentence, so it chooses the largest unit it can,
 then displays the next smaller 2 (that don't equal 0) as well. For example:
 
 ```ruby
-    123456877.seconds.time_sentence #=> "4 years, 3 months, 21 hours"
+    123456877.seconds.to_time_sentence #=> "4 years, 3 months, 21 hours"
 ```
 
 Normally if you have a number on the scale of years, it doesn't matter how many, say, seconds there are. The number
-above represents 4 years, 3 months, 0 weeks, 0 days, 21 hours, and probably some number if minutes and seconds.
+above represents 4 years, 3 months, 0 weeks, 0 days, 21 hours, and probably some number of minutes and seconds.
 
 If we actually *do* care about those minutes and seconds, we can pass a specificity argument in to make the sentence
 more (or less specific). For example:
 
 ```ruby
-    123456877.seconds.time_sentence #=> "4 years, 3 months, 21 hours"
-    123456877.seconds.time_sentence(1) #=> "4 years"
-    123456877.seconds.time_sentence(2) #=> "4 years, 3 months"
-    123456877.seconds.time_sentence(3) #=> "4 years, 3 months, 21 hours"
-    123456877.seconds.time_sentence(4) #=> "4 years, 3 months, 21 hours, 34 minutes"
-    123456877.seconds.time_sentence(5) #=> "4 years, 3 months, 21 hours, 34 minutes, 37 seconds"
+    123456877.seconds.to_time_sentence    #=> "4 years, 3 months, 21 hours"
+    123456877.seconds.to_time_sentence(1) #=> "4 years"
+    123456877.seconds.to_time_sentence(2) #=> "4 years, 3 months"
+    123456877.seconds.to_time_sentence(3) #=> "4 years, 3 months, 21 hours"
+    123456877.seconds.to_time_sentence(4) #=> "4 years, 3 months, 21 hours, 34 minutes"
+    123456877.seconds.to_time_sentence(5) #=> "4 years, 3 months, 21 hours, 34 minutes, 37 seconds"
 
-    Time.sentence(123456877.seconds, 5) #=> "4 years, 3 months, 21 hours, 34 minutes, 37 seconds"
+    # Works the same way by calling Time.to_sentence
+    Time.to_sentence(123456877.seconds, 5) #=> "4 years, 3 months, 21 hours, 34 minutes, 37 seconds"
 ```
 
 ### Past Times
@@ -53,7 +55,7 @@ more (or less specific). For example:
 Passing a negative number into the method will generate a sentence about the past:
 
 ```ruby
-    -123456877.seconds.time_sentence(5) #=> "4 years, 3 months, 21 hours, 34 minutes, 37 seconds ago"
+    -123456877.seconds.to_time_sentence(5) #=> "4 years, 3 months, 21 hours, 34 minutes, 37 seconds ago"
 ```
 
 ### Now
@@ -61,12 +63,12 @@ Passing a negative number into the method will generate a sentence about the pas
 Passing 0 into the method will simply return "now"
 
 ```ruby
-    0.seconds.time_sentence #=> "now"
+    0.seconds.to_time_sentence #=> "now"
 ```
 
 # Contributors
 
-time_sentence is solely Pete Michaud's (me@petermichaud.com) fault, so blame him for everything.
+`time_sentence` is solely Pete Michaud's (me@petermichaud.com) fault, so blame him for everything.
 
 # License
 
