@@ -4,17 +4,17 @@ class Time
   #
   # == Examples
   #
-  #   Time.sentence(1.hour) #=> "1 hour"
-  #   Time.sentence(168.hours) #=> "1 week"
-  #   Time.sentence(9999.seconds) #=> "2 hours, 46 minutes, 39 seconds"
-  #   Time.sentence(123456876543.seconds) #=> "4 millennia, 25 decades, 2 years"
+  #   Time.to_sentence(1.hour) #=> "1 hour"
+  #   Time.to_sentence(168.hours) #=> "1 week"
+  #   Time.to_sentence(9999.seconds) #=> "2 hours, 46 minutes, 39 seconds"
+  #   Time.to_sentence(123456876543.seconds) #=> "4 millennia, 25 decades, 2 years"
   #
   # == Params
   #
   # @param [Numeric] Number of seconds to convert to a sentence
   # @param [Integer] Specificity of the sentence (how many clauses are included)
   # @return [String] Generated sentence
-  def self.sentence seconds, specificity = 3
+  def self.to_sentence seconds, specificity = 3
 
     return 'now' if seconds == 0
 
