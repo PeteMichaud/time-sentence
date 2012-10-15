@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Time.sentence' do
+describe 'Time.to_sentence' do
 
   it "should accept a positive integer" do
     Time.to_sentence(100000000).should eql "3 years, 5 months, 1 week"
@@ -25,15 +25,15 @@ describe 'Time.sentence' do
   it "should accept specificity" do
     (1..10).each do |specificity|
       Time.to_sentence(123456789123456789, specificity).should be_kind_of String
-      123456789123456789.time_sentence(specificity).should be_kind_of String
+      123456789123456789.to_time_sentence(specificity).should be_kind_of String
     end
   end
 
   it "should ignore a specificity that is out of range" do
       Time.to_sentence(123456789123456789, -5).should be_kind_of String
-      123456789123456789.time_sentence(-5).should be_kind_of String
+      123456789123456789.to_time_sentence(-5).should be_kind_of String
       Time.to_sentence(123456789123456789, 20).should be_kind_of String
-      123456789123456789.time_sentence(20).should be_kind_of String
+      123456789123456789.to_time_sentence(20).should be_kind_of String
   end
 
 end
