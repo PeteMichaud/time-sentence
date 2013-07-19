@@ -36,4 +36,10 @@ describe 'Time.to_sentence' do
       123456789123456789.to_time_sentence(20).should be_kind_of String
   end
 
+  require 'active_support/core_ext/numeric'
+
+  it "should round seconds to integers" do
+    (1.day + 3.hours + 56.23456454.seconds).to_time_sentence.should eql "1 day, 3 hours, 56 seconds"
+  end
+
 end

@@ -25,7 +25,7 @@ class Time
     # Tracks what the values and names of each unit, as well as the
     # conversion factor needed to go to the next larger unit
     time = [
-        { value: seconds.abs,   unit: 'second',      conversion: 60 },
+        { value: seconds.abs.round,   unit: 'second',      conversion: 60 },
         { value: 0,             unit: 'minute',      conversion: 60 },
         { value: 0,             unit: 'hour',        conversion: 24 },
         { value: 0,             unit: 'day',         conversion: 7 },
